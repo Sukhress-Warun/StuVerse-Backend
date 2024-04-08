@@ -14,10 +14,10 @@ router.post('/signup', async (req, res) => {
     let password = req.body.password
     const response = await User.createUser(email, password)
     if(response.created){
-        res.json({created: true, message: response.message, id: response.id})
+        return res.json({created: true, message: response.message, id: response.id})
     }
     else{
-        res.json({created: false, message: response.message})
+        return res.json({created: false, message: response.message})
     }
 })
 
@@ -26,10 +26,10 @@ router.post("/login", async (req, res) => {
     let password = req.body.password
     const response = await User.authenticate(email, password)
     if(response.auth){
-       res.json({auth: true, message: response.message, id: response.id})
+       return res.json({auth: true, message: response.message, id: response.id})
     }
     else{
-        res.json({auth: false, message: response.message})
+        return res.json({auth: false, message: response.message})
     }
 })
 

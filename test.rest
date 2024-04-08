@@ -18,7 +18,8 @@ Content-Type: application/json
 
 ###
 POST http://localhost:8080/student/add HTTP/1.1
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: multipart/form-data
+
 {
     "name": "student",
     "email": "student@gmail.com",
@@ -36,3 +37,6 @@ GET http://localhost:8080/student/get HTTP/1.1
 
 ###
 GET http://localhost:8080/student/get/661440eea740936c9b1c6599 HTTP/1.1
+
+###
+DELETE http://localhost:8080/student/delete/661459e3396c256884a4c743 HTTP/1.1

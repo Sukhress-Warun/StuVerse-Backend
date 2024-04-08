@@ -76,6 +76,27 @@ StudentSchema.statics.createStudent = async function (name, email, gender, addre
     return response
 }
 
+StudentSchema.statics.deleteStudent = async function (id){
+    const response = {
+        deleted: false,
+        message: ""
+    }
+    try{
+        const student = await this.findByIdAndDelete(id)
+        if(student){
+            response.deleted = true
+            response.message = "student deleted"
+        }
+        else{
+            response.message = "student not found"
+        }
+    }
+    catch(err){
+        response.message = "server error " + err
+    }
+    return response
+}
+
 StudentSchema.statics.getStudent = async function (id){
     const response = {
         found: false,
