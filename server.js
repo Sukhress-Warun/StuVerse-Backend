@@ -25,9 +25,11 @@ app.use(cors())
 
 // importing routes
 const user = require('./routes/user')
+const student = require('./routes/student')
 
 // adding routes
 app.use('/user', user)
+app.use('/student', student)
 
 
 // home route
