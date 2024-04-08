@@ -12,7 +12,6 @@ const Student = require('../models/student')
 // routes /student/
 router.post("/add", upload.none(), async (req, res) => {
     const { name, email, gender, address, phone, degree, degreeStatus, year, collegeName} = req.body
-    console.log(req.body)
     const response = await Student.createStudent(name, email, gender, address, phone, degree, degreeStatus, year, collegeName)
     if(response.created){
        return res.json({created: true, message: response.message, id: response.id})
