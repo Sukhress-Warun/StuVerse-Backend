@@ -107,7 +107,7 @@ StudentSchema.statics.getAllStudents = async function (){
     }
     try{
         const students = await this.find()
-        if(students){
+        if(students.length > 0){
             response.found = true
             response.message = "students found"
             response.students = students
